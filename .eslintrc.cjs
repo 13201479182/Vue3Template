@@ -9,6 +9,8 @@ const jsRules = {
     'no-cond-assign': 2,
     'no-console': 1,
     'no-constant-condition': 2,
+    'no-debugger': 2,
+    'no-dupe-keys': 2,
 };
 
 module.exports = {   

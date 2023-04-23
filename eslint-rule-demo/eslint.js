@@ -42,6 +42,21 @@
  */
 // if (true) {}
 
+/**
+ * 8. no-debugger
+ * 禁用 debugger
+ */
+// debugger;
+
+/**
+ * 9. no-dupe-keys
+ * 禁止在对象字面量中出现重复的键
+ */
+// const obj = {
+//     name: 'no-dupe-keys',
+//     'name': 'no-dupe-keys'
+// }
+
 
 
 

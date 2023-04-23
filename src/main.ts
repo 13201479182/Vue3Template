@@ -2,6 +2,6 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
-import '../demo/eslint.js.rule.js'
+import '../eslint-rule-demo/eslint'
 
 createApp(App).mount('#app')

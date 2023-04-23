@@ -6,16 +6,16 @@
   "scripts": {
     "init": "simple-git-hooks",
     "commit": "gitmoji -c",
-    "lint:fix": "eslint --fix --ext .js,.cjs,.ts,.vue",
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.cjs"
   },
   "simple-git-hooks": {
-    "pre-commit": "git pull & npx lint-staged"
+    "pre-commit": "git pull && npx lint-staged"
   },
   "lint-staged": {
-    "*.{js,cjs,ts,vue}": "eslint"
+    "*.{js,cjs}": "eslint "
   },
   "dependencies": {
     "vue": "^3.2.45"
