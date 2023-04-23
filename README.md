@@ -2,10 +2,11 @@
 
 ## 1. run scripts
 <pre>
-   运行: npm run dev
-   打包: npm run build
-   预览: npm run preview
-   提交: npm run commit
+   初始化:  npm run init
+   运行:    npm run dev
+   打包:    npm run build
+   预览:    npm run preview
+   提交:    npm run commit
 </pre>
 
 ## 2. develop vscode plugins

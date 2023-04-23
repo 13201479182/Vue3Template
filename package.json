@@ -4,20 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "compare": "simple-git-hooks",
+    "init": "simple-git-hooks",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "commit": "gitmoji -c"
   },
   "simple-git-hooks": {
-    "pre-commit": "git pull & lint-staged"
+    "pre-commit": "lint-staged & git pull"
   },
   "lint-staged": {
-    "*.json": [
-      "prettier --write"
-    ],
-    "*.{js,ts,vue}": "eslint --fix"
+    "*.{js,cjs,ts,vue}": "eslint --fix"
   },
   "dependencies": {
     "vue": "^3.2.45"
@@ -25,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.0.0",
+    "eslint": "^8.38.0",
     "gitmoji-cli": "^8.0.0",
     "lint-staged": "^13.2.0",
     "simple-git-hooks": "^2.8.1",
