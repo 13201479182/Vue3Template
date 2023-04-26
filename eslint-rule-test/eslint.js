@@ -66,7 +66,7 @@
 // switch (a) {
 //     case 1:
 //         break;
-//     case 1:         
+//     case 1:
 //         break;
 // }
 
@@ -104,7 +104,7 @@
  * 15. no-lone-blocks
  * 禁用不必要的嵌套块
  */
-// { 
+// {
 //     var a = 10
 // }
 // function bar() {
@@ -250,7 +250,7 @@
  * 强制块语句的最大可嵌套深度
  */
 // function foo() {
-//     if (a === '1') { 
+//     if (a === '1') {
 //         if (a === '2') {
 //             if (a === '3') {
 //                 if (a === '4') {
@@ -263,7 +263,7 @@
 
 /**
  * 38. max-lines                300
- * 强制文件的最大行数       
+ * 强制文件的最大行数
  */
 
 /**
@@ -273,43 +273,37 @@
 
 /**
  * 40. max-statements-per-line  1
- * 强制每一行中所允许的最大语句数量 
+ * 强制每一行中所允许的最大语句数量
  */
 // var bar; var baz;
 
 /**
- * 41. new-cap  
+ * 41. new-cap
  * 要求构造函数首字母大写
  */
 // new person();
 
 /**
- * 42. new-cap  
- * 要求构造函数首字母大写
- */
-// new person();
-
-/**
- * 43. no-mixed-operators
+ * 42. no-mixed-operators
  * 禁止混合使用不同的操作符
  */
 // true || true && false
 
 /**
- * 44. constructor-super
+ * 43. constructor-super
  * 验证构造函数中 super() 的调用
  */
 // class A {
 //     constructor() {
-//         // super(); 
+//         // super();
 //     }
 // }
 // class B extends A {
-//     constructor() {}  
+//     constructor() {}
 // }
 
 /**
- * 45. prefer-rest-params
+ * 44. prefer-rest-params
  * 建议使用剩余参数代替 arguments
  */
 // function foo() {

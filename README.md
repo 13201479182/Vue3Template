@@ -2,13 +2,13 @@
 
 ## 1. run scripts
 <pre>
-   初始化:  npm run init
-   提交:    npm run commit
-   运行:    npm run dev
-   打包:    npm run build
-   预览:    npm run preview
-   约束:    npm run lint
-   修复:    npm run lint:fix
+   提交:        npm run commit
+   运行:        npm run dev
+   打包:        npm run build
+   预览:        npm run preview
+   查看问题:     npm run lint
+   修复问题:     npm run lint:fix
+   格式代码:     npm run format
 </pre>
 
 ## 2. develop vscode plugins

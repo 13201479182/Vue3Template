@@ -4,19 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "init": "simple-git-hooks",
-    "commit": "gitmoji -c",
+    "postinstall": "simple-git-hooks",
+    "commit": "git pull && gitmoji -c",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.cjs",
-    "lint:fix": "eslint . --fix --ext .js,.cjs"
+    "lint:fix": "eslint . --fix --ext .js,.cjs",
+    "format": "prettier --write ."
   },
   "simple-git-hooks": {
-    "pre-commit": "git pull && npx lint-staged"
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.{js,cjs}": "eslint "
+    "*.{js,cjs}": [
+      "eslint",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "vue": "^3.2.45"
@@ -27,6 +31,7 @@
     "eslint": "^8.38.0",
     "gitmoji-cli": "^8.0.0",
     "lint-staged": "^13.2.0",
+    "prettier": "2.8.8",
     "simple-git-hooks": "^2.8.1",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
