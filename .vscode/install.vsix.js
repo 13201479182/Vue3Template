@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 
-const extensions = {
+const plugins = {
     'Project Manager': 'alefragnani.project-manager',
     'ESLint': 'dbaeumer.vscode-eslint',
     'Prettier - Code formatter': 'esbenp.prettier-vscode',
@@ -17,12 +17,32 @@ const extensions = {
     'JavaScript (ES6) code snippets': 'xabikos.JavaScriptSnippets',
 };
 
-// 'code --install-extension formulahendry.auto-close-tag',
-exec('code --list-extensions', (err, stdout, stderr) => {
-    if (err) {
-        console.log(err);
-        return;
+function installPlugins(installedPlugins) {
+    for (const pluginName in plugins) {
+        const plugin = plugins[pluginName];
+        if (installedPlugins.indexOf(plugin) === -1) {
+            const child = exec(
+                `code --install-extension ${plugin}`,
+                (err, stdout, stderr) => {
+                    if (err) {
+                        console.log(
+                            `vsix: ${pluginName} 安装失败, 请使用 npm i 重试!`,
+                        );
+                    }
+                    console.log(`vsix: ${pluginName} 安装成功!`);
+                    // 结束子进程
+                    child.kill();
+                },
+            );
+        }
     }
-    console.log(`stdout: ${stdout}`, extensions);
-    console.log(`stderr: ${stderr}`);
+}
+
+exec('code --list-extensions', (err, stdout, stderr) => {
+    if (err || stderr) {
+        return console.log(err, stderr);
+    }
+
+    const installedPlugins = stdout.split('\n').filter((item) => item);
+    installPlugins(installedPlugins);
 });
