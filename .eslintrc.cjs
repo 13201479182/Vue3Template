@@ -2,6 +2,9 @@
  * js 代码规则制定(https://www.eslint.com.cn/docs/rules/)
  */
 const jsRules = {
+    // 将prettier作为插件使用,提示报警信息
+    "prettier/prettier": 1,
+
     "for-direction": 2,
     "getter-return": 2,
     "no-async-promise-executor": 2,
@@ -64,6 +67,7 @@ module.exports = {
     root: true,
 
     overrides: [
+        // js & cjs 文件处理
         {
             files: ["*.js", "*.cjs"],
             rules: jsRules,
@@ -71,6 +75,7 @@ module.exports = {
                 ecmaVersion: "latest",
                 sourceType: "module",
             },
+            plugins: ["prettier"]
         },
     ],
 };
