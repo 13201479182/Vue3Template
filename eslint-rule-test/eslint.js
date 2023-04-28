@@ -1,5 +1,4 @@
 /* eslint max-lines: off */
-
 /**
  * 1. for-direction
  * 强制 “for” 循环中计数器朝着正确的方向移动
@@ -28,7 +27,7 @@
 
 /**
  * 5. no-cond-assign
- * 禁止与 -0 进行比较
+ * 禁止条件表达式中出现赋值操作符
  */
 // if (a = 1) {}
 
@@ -235,8 +234,8 @@
 // my_favorite_color;
 
 /**
- * 35. consistent
- * 要求使用骆驼拼写法
+ * 35. consistent-this
+ * 强制this赋值使用一样的别名self
  */
 // that = this;
 

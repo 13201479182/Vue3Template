@@ -1,7 +1,7 @@
 /**
- * js 代码规则制定(https://www.eslint.com.cn/docs/rules/)
+ * 任何语言通用规则
  */
-const jsRules = {
+const commonRules = {
     // 将prettier作为插件使用,提示报警信息
     "prettier/prettier": 1,
 
@@ -10,9 +10,9 @@ const jsRules = {
     "no-async-promise-executor": 2,
     "no-compare-neg-zero": 2,
     "no-cond-assign": 2,
-    "no-console": 2,
+    "no-console": 1,
     "no-constant-condition": 2,
-    "no-debugger": 2,
+    "no-debugger": 1,
     "no-dupe-keys": 2,
     "no-duplicate-case": 2,
     "no-empty": 2,
@@ -24,7 +24,6 @@ const jsRules = {
     "no-new-wrappers": 2,
     "no-param-reassign": 2,
     "no-proto": 2,
-    "no-redeclare": 2,
     "no-script-url": 2,
     "no-throw-literal": 2,
     "no-useless-call": 2,
@@ -42,9 +41,6 @@ const jsRules = {
     ],
     yoda: 2,
     "no-shadow": 2,
-    "no-unused-vars": 2,
-    "no-use-before-define": 2,
-
     camelcase: 2,
     "consistent-this": [2, "self"],
     "line-comment-position": 2,
@@ -63,6 +59,24 @@ const jsRules = {
     "prefer-rest-params": 2,
 };
 
+/**
+ * js 代码规则制定(https://eslint.org/docs/latest/rules)
+ * 针对js语法规则
+ */
+const jsRules = {
+    "no-redeclare": 2,
+    "no-unused-vars": 2,
+    "no-use-before-define": 2,
+};
+
+/**
+ * ts 代码规则制定(https://typescript-eslint.io/rules/adjacent-overload-signatures)
+ * 针对ts语法规则
+ */
+const tsRules = {
+    "@typescript-eslint/adjacent-overload-signatures": 2,
+};
+
 module.exports = {
     root: true,
 
@@ -70,12 +84,24 @@ module.exports = {
         // js & cjs 文件处理
         {
             files: ["*.js", "*.cjs"],
-            rules: jsRules,
+            rules: Object.assign({}, commonRules, jsRules),
             parserOptions: {
                 ecmaVersion: "latest",
                 sourceType: "module",
             },
             plugins: ["prettier"]
+        },
+
+        // ts 文件处理
+        {
+            files: ["*.ts"],
+            rules: Object.assign({}, commonRules, tsRules),
+            parser: "@typescript-eslint/parser",
+            parserOptions: {
+                ecmaVersion: "latest",
+                project: './tsconfig.json'
+            },
+            plugins: ["@typescript-eslint", "prettier"],
         },
     ],
 };
