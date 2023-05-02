@@ -8,13 +8,14 @@ const plugins = {
     'Auto Rename Tag': 'formulahendry.auto-rename-tag',
     'Todo Tree': 'Gruntfuggly.todo-tree',
     'Vue 3 Snippets': 'hollowtree.vue-snippets',
-    'Git Graph': 'mhutchie.git-graph',
     'Live Server': 'ritwickdey.LiveServer',
     'Auto Import': 'steoates.autoimport',
     'vscode-icons': 'vscode-icons-team.vscode-icons',
     'Volar': 'Vue.volar',
     'TypeScript Vue Plugin': 'Vue.vscode-typescript-vue-plugin',
     'JavaScript (ES6) code snippets': 'xabikos.JavaScriptSnippets',
+    'GitLens': 'eamodio.gitlens',
+    'Chinese (Simplified)': 'MS-CEINTL.vscode-language-pack-zh-hans',
 };
 
 function installPlugins(installedPlugins) {
