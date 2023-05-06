@@ -7,7 +7,7 @@ module.exports = {
     trailingComma: 'all',
     bracketSpacing: true,
     bracketSameLine: true,
-    arrowParens: 'always',
+    arrowParens: 'avoid',
     endOfLine: 'auto',
-    singleAttributePerLine: true
+    singleAttributePerLine: false
 };
