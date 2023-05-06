@@ -1,7 +1,7 @@
 /dist
 node_modules
 
-.eslintrc.cjs
+# .eslintrc.cjs
 .prettierrc.cjs
 
 package.json
