@@ -13,11 +13,11 @@
         "skipLibCheck": true,
         "noEmit": true
     },
+    // prettier-ignore
     "include": [
         "eslint-rule-test/**/*",
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.vue"
-    ],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    ]
 }

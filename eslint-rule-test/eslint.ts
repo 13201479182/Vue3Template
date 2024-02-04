@@ -64,9 +64,8 @@
 
 /**
  * 8. consistent-type-assertions
- * 规定采用一致的断言, as&类型前置,除了const any unknown
+ * 强制采用一致的断言<>
  */
 // const y = {} as any;
-// const z = {} as unknown;
-// const x = {} as const;
-// const d = {} as number;
+// const z = <unknown>{};
+// const x = <const>{};

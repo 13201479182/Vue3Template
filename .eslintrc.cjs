@@ -103,17 +103,22 @@ const tsRules = {
     '@typescript-eslint/ban-types': 2,
     '@typescript-eslint/class-literal-property-style': [2, 'fields'],
     '@typescript-eslint/consistent-generic-constructors': [2, 'constructor'],
-    '@typescript-eslint/consistent-indexed-object-style': [
-        2,
-        'index-signature',
-    ],
+    '@typescript-eslint/consistent-indexed-object-style': [2, 'index-signature'],
     '@typescript-eslint/consistent-type-assertions': [
         2,
         {
-            assertionStyle: 'as',
-            objectLiteralTypeAssertions: 'allow-as-parameter',
+            assertionStyle: 'angle-bracket',
         },
     ],
+};
+
+/**
+ * vue 代码规则制定(https://eslint.vuejs.org/rules/)
+ * 针对vue语法规则
+ */
+const vueRules = {
+    'vue/singleline-html-element-content-newline': 0,
+    'vue/html-indent': 0,
 };
 
 module.exports = {
@@ -131,16 +136,43 @@ module.exports = {
             plugins: ['prettier'],
         },
 
-        // ts 文件处理
+        // vite.config.ts
         {
-            files: ['*.ts'],
+            files: ['vite.config.ts'],
             rules: Object.assign({}, commonRules, tsRules),
             parser: '@typescript-eslint/parser',
             parserOptions: {
                 ecmaVersion: 'latest',
-                project: './tsconfig.json',
+                project: 'tsconfig.node.json',
             },
             plugins: ['@typescript-eslint', 'prettier'],
+        },
+
+        // ts 文件处理
+        {
+            files: ['src/**/*.ts', 'eslint-rule-test/**/*.ts'],
+            rules: Object.assign({}, commonRules, tsRules),
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                ecmaVersion: 'latest',
+                project: 'tsconfig.json',
+            },
+            plugins: ['@typescript-eslint', 'prettier'],
+        },
+
+        // vue 文件处理
+        {
+            files: ['*.vue'],
+            extends: ['plugin:vue/vue3-recommended'],
+            rules: Object.assign({}, commonRules, tsRules, vueRules),
+            parser: 'vue-eslint-parser',
+            parserOptions: {
+                parser: '@typescript-eslint/parser',
+                ecmaVersion: 'latest',
+                sourceType: 'module',
+                project: './tsconfig.json',
+                extraFileExtensions: ['.vue'],
+            },
         },
     ],
 };
